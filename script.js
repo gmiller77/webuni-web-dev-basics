@@ -287,3 +287,5 @@ console.log([] instanceof Array); // true
 console.log([] instanceof Object); // true
 console.log({} instanceof Object); // true
 console.log(new Date() instanceof Date); // true
+
+document.getElementById('submit').addEventListener('click', e => console.log(e));
