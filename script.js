@@ -116,8 +116,8 @@ const b = 5;
 console.log(a == b);
 console.log(a === b);
 
-const p1 = {name: 'Zizi'};
-const p2 = {name: 'Zizi'};
+const p1 = { name: 'Zizi' };
+const p2 = { name: 'Zizi' };
 console.log(p1 == p2);
 console.log(p1 === p2);
 
@@ -128,10 +128,10 @@ console.log(p1 === p3);
 // js: dinamikusan típusos
 let d = 5;
 d = '6';
-d = [1,2,3];
-d = i => console.log(i);
+d = [1, 2, 3];
+d = (i) => console.log(i);
 
-d("Javascript");
+d('Javascript');
 
 //closure
 const makeClosure = () => {
@@ -142,8 +142,148 @@ const makeClosure = () => {
   return displayName;
 };
 
-const testFn = makeClosure();
-testFn();
+//const testFn = makeClosure();
+//testFn();
 
+const isPositive = (n) => {
+  if (n >= 0) {
+    console.log('positive');
+  } else {
+    console.log('negative');
+  }
+};
 
+isPositive(5);
+isPositive(-5);
 
+const isTruthy = (v) => {
+  if (v) {
+    console.log('Truthy');
+  } else {
+    console.log('Falsy');
+  }
+};
+isTruthy({});
+isTruthy('');
+
+const mapToStars = (n) => {
+  let res;
+  switch (n) {
+    case 1:
+      res = '*';
+      break;
+    case 2:
+      res = '**';
+      break;
+    case 3:
+      res = '***';
+      break;
+    case 4:
+      res = '****';
+      break;
+    case 5:
+      res = '*****';
+      break;
+    default:
+      res = '-';
+  }
+  return res;
+};
+
+console.log(mapToStars(2));
+console.log(mapToStars(0));
+
+const throwIfFalsy = (v) => {
+  if (!v) {
+    throw new Error('Falsy value');
+  }
+};
+try {
+  throwIfFalsy('Truthy');
+  console.log('success');
+} catch (err) {
+  console.error('Caught error', err);
+}
+
+try {
+  throwIfFalsy(false);
+  console.log('success2');
+} catch (err) {
+  console.error('Caught error2', err);
+}
+
+for (let i = 0; i <= 4; i++) {
+  console.log('For loop', i + 1);
+}
+
+let i = 0;
+while (i <= 4) {
+  console.log('Whileloop', i + 1);
+  i++;
+}
+
+const a11 = '5';
+const b11 = 5;
+console.log(a11 == b11);
+
+const p11 = {
+  name: 'Zizi',
+};
+
+const p22 = {
+  name: 'Zizi',
+};
+
+console.log(p11 === p22); // Referencia típusoknál nincs deep equalconstp3 = p1;console.log(p1 === p3); // Csak a referencia
+
+let x = 5;
+let y = 4;
+console.log(x + y); // 9
+console.log(x - y); // 1
+console.log(x * y); // 20
+console.log(x / y); // 1.25
+console.log(x % y); // 1
+x += y; // x = x + y
+console.log(x); // 9
+x++; // x = x + 1
+console.log(x); // 10
+
+console.log(!true);
+const e1 = 'Cat' && 'Dog'; //t && t returns Dog
+const e2 = false && 'Cat'; //f && t returns false
+const e3 = 'Cat' && false; //t && f returns false
+console.log(e1, e2, e3);
+
+const e4 = 'Cat' || 'Dog'; //t || t returns Cat
+const e5 = false || 'Cat'; //f || t returns Cat
+const e6 = 'Cat' || false; //t || f returns Cat
+const e7 = false || false; //f || f returns false
+console.log(e4, e5, e6, e7);
+
+const isAdult = (age) => {
+  let res;
+  res = age <= 18 ? false : true;
+  return res;
+};
+console.log(isAdult(16)); // false
+console.log(isAdult(22)); // true
+
+const person = {
+  name: 'John',
+  email: 'john@example.com',
+};
+
+console.log(person);
+delete person.email;
+console.log(person);
+
+console.log(typeof 5); // number
+console.log(typeof 'a string'); // string
+console.log(typeof []); // object
+console.log(typeof {}); // object
+console.log(typeof new Date()); // object
+console.log(typeof (() => {})); // function
+console.log([] instanceof Array); // true
+console.log([] instanceof Object); // true
+console.log({} instanceof Object); // true
+console.log(new Date() instanceof Date); // true
